@@ -1,0 +1,16 @@
+name: feature
+on:
+  pull_requests:
+    branches: ["main"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: setup golang env
+      uses: actions/setup-go@v4
+      with: 
+        go-version: '1.22'
+    - name: go test
+      run: go test -v ./...
+
